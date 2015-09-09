@@ -1,0 +1,12 @@
+#sdc-cli --sdc-url http://$streamsets.host:$streamsets.port --sdc-user $streamsets.user  --sdc-password $streamsets.password  --config-file #{::File.join('/tmp', $streamsets.configfile)}.conf --auth-type form pipeline start $streamsets.configfile"
+
+(${streamsets.command} \\
+    ${streamsets.url} \\
+	http://$streamsets.host:$streamsets.port \\
+	--sdc-user $streamsets.user \\
+	--sdc-password $streamsets.password \\
+	--config-file '/tmp/$(streamsets.configfile).conf'
+	--auth-type form pipeline start \\
+	$streamsets.configfile \\
+
+sleep 3
