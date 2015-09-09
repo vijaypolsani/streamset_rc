@@ -1,12 +1,15 @@
+#Sample Command
 #sdc-cli --sdc-url http://$streamsets.host:$streamsets.port --sdc-user $streamsets.user  --sdc-password $streamsets.password  --config-file #{::File.join('/tmp', $streamsets.configfile)}.conf --auth-type form pipeline start $streamsets.configfile"
+
+#sdc-cli --sdc-url http://localhost:18630 --sdc-user admin  --sdc-password admin  --config-file '/tmp/Firehose_File_Kafka.conf' --auth-type form pipeline start Firehose_File_Kafka
 
 (${streamsets.command} \\
     ${streamsets.url} \\
-	http://$streamsets.host:$streamsets.port \\
-	--sdc-user $streamsets.user \\
-	--sdc-password $streamsets.password \\
-	--config-file '/tmp/$(streamsets.configfile).conf'
+	http://${streamsets.host}:${streamsets.port} \\
+	--sdc-user ${streamsets.user} \\
+	--sdc-password ${streamsets.password} \\
+	--config-file '/tmp/${streamsets.configfile}.conf'
 	--auth-type form pipeline start \\
-	$streamsets.configfile \\
+	${streamsets.configfile}) \\
 
 sleep 3
