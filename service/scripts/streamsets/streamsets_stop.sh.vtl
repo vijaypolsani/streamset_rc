@@ -1,4 +1,4 @@
-#Start the StreamSets pipeline for the given environment
+#Stop the StreamSets pipeline for the given environment
 
 ${streamsets.command} \\
     ${streamsets.url} \\
@@ -6,7 +6,6 @@ ${streamsets.command} \\
 	--sdc-user ${streamsets.user} \\
 	--sdc-password ${streamsets.password} \\
 	--config-file '/tmp/${streamsets.configfile}.conf' \\
-	--auth-type form pipeline start \\
-	${streamsets.configfile} \\
+	--auth-type form pipeline stop \\
 
 sleep 3
